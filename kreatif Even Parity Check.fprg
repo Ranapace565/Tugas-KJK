@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="user"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-10-13 08:15:21 PM"/>
+        <attribute name="created" value="dXNlcjtMQVBUT1AtNjVITzNRNDY7MjAyNC0xMC0xMzswNzozNTo1MSBQTTsyNzMw"/>
+        <attribute name="edited" value="dXNlcjtMQVBUT1AtNjVITzNRNDY7MjAyNC0xMC0xMzswODoxNToyMSBQTTsxOzI4MzQ="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="bit1, bit2, bit3, bit4, paritas, indek, ulangi" type="Integer" array="False" size=""/>
+            <do expression="ulangi == 1">
+                <output expression="&quot;masukan bit1&quot;" newline="True"/>
+                <input variable="bit1"/>
+                <output expression="&quot;masukan bit2&quot;" newline="True"/>
+                <input variable="bit2"/>
+                <output expression="&quot;masukan bit3&quot;" newline="True"/>
+                <input variable="bit3"/>
+                <output expression="&quot;masukan bit4&quot;" newline="True"/>
+                <input variable="bit4"/>
+                <if expression="bit1 == 1">
+                    <then>
+                        <assign variable="indek" expression="1"/>
+                        <if expression="bit2 == 1">
+                            <then>
+                                <assign variable="indek" expression="indek+1"/>
+                                <if expression="bit3 == 1">
+                                    <then>
+                                        <assign variable="indek" expression="indek+1"/>
+                                        <if expression="bit4 == 1">
+                                            <then>
+                                                <assign variable="paritas" expression="0"/>
+                                                <assign variable="indek" expression="indek+1"/>
+                                            </then>
+                                            <else>
+                                                <assign variable="paritas" expression="1"/>
+                                            </else>
+                                        </if>
+                                    </then>
+                                    <else>
+                                        <if expression="bit4 == 1">
+                                            <then>
+                                                <assign variable="indek" expression="indek+1"/>
+                                                <assign variable="paritas" expression="1"/>
+                                            </then>
+                                            <else>
+                                                <assign variable="paritas" expression="0"/>
+                                            </else>
+                                        </if>
+                                    </else>
+                                </if>
+                            </then>
+                            <else>
+                                <if expression="bit3 == 1">
+                                    <then>
+                                        <assign variable="indek" expression="indek+1"/>
+                                        <if expression="bit4 == 1">
+                                            <then>
+                                                <assign variable="indek" expression="indek+1"/>
+                                                <assign variable="paritas" expression="1"/>
+                                            </then>
+                                            <else>
+                                                <assign variable="paritas" expression="0"/>
+                                            </else>
+                                        </if>
+                                    </then>
+                                    <else>
+                                        <if expression="bit4 == 1">
+                                            <then>
+                                                <assign variable="paritas" expression="0"/>
+                                            </then>
+                                            <else>
+                                                <assign variable="paritas" expression="1"/>
+                                            </else>
+                                        </if>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </then>
+                    <else>
+                        <if expression="bit2 == 1">
+                            <then>
+                                <assign variable="indek" expression="1"/>
+                                <if expression="bit3 == 1">
+                                    <then>
+                                        <assign variable="indek" expression="indek+1"/>
+                                        <if expression="bit4 == 1">
+                                            <then>
+                                                <assign variable="indek" expression="indek+1"/>
+                                                <assign variable="paritas" expression="1"/>
+                                            </then>
+                                            <else>
+                                                <assign variable="paritas" expression="0"/>
+                                            </else>
+                                        </if>
+                                    </then>
+                                    <else>
+                                        <if expression="bit4 == 1">
+                                            <then>
+                                                <assign variable="indek" expression="indek+1"/>
+                                                <assign variable="paritas" expression="0"/>
+                                            </then>
+                                            <else>
+                                                <assign variable="paritas" expression="1"/>
+                                            </else>
+                                        </if>
+                                    </else>
+                                </if>
+                            </then>
+                            <else>
+                                <if expression="bit3 == 1">
+                                    <then>
+                                        <assign variable="indek" expression="1"/>
+                                        <if expression="bit4 == 1">
+                                            <then>
+                                                <assign variable="indek" expression="indek+1"/>
+                                                <assign variable="paritas" expression="0"/>
+                                            </then>
+                                            <else>
+                                                <assign variable="paritas" expression="1"/>
+                                            </else>
+                                        </if>
+                                    </then>
+                                    <else>
+                                        <if expression="bit4 == 1">
+                                            <then>
+                                                <assign variable="indek" expression="1"/>
+                                                <assign variable="paritas" expression="1"/>
+                                            </then>
+                                            <else>
+                                                <assign variable="paritas" expression="0"/>
+                                            </else>
+                                        </if>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+                <output expression="&quot;data  &quot;" newline="False"/>
+                <output expression="bit1" newline="False"/>
+                <output expression="bit2" newline="False"/>
+                <output expression="bit3" newline="False"/>
+                <output expression="bit4" newline="False"/>
+                <output expression="&quot; dengan &quot;" newline="False"/>
+                <output expression="indek" newline="False"/>
+                <output expression="&quot; bit (1)  menghasilkan paritas &quot;" newline="False"/>
+                <output expression="paritas" newline="True"/>
+                <output expression="&quot;hitung lagi (1 = ya / 0 = tidak)&quot;" newline="True"/>
+                <input variable="ulangi"/>
+            </do>
+        </body>
+    </function>
+</flowgorithm>
