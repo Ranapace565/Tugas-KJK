@@ -4,9 +4,9 @@
         <attribute name="name" value=""/>
         <attribute name="authors" value="user"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2024-10-14 03:28:13 AM"/>
+        <attribute name="saved" value="2024-10-14 03:47:44 AM"/>
         <attribute name="created" value="dXNlcjtMQVBUT1AtNjVITzNRNDY7MjAyNC0xMC0xNDsxMjo1OToxNyBBTTsyNzIw"/>
-        <attribute name="edited" value="dXNlcjtMQVBUT1AtNjVITzNRNDY7MjAyNC0xMC0xNDswMzoyODoxMyBBTTsxOzI4MjA="/>
+        <attribute name="edited" value="dXNlcjtMQVBUT1AtNjVITzNRNDY7MjAyNC0xMC0xNDswMzo0Nzo0NCBBTTsyOzI4MjY="/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
@@ -295,20 +295,26 @@
                     <assign variable="data[0]" expression="p12"/>
                     <assign variable="data[1]" expression="p22"/>
                     <assign variable="data[3]" expression="p32"/>
-                    <output expression="&quot;data lengkap menjadi 7 bit = &quot; &amp;data[0]&amp;data[1]&amp;data[2]&amp;data[3]&amp;data[4]&amp;data[5]&amp;data[6]" newline="True"/>
+                    <output expression="&quot;data diterima = &quot; &amp;data[0]&amp;data[1]&amp;data[2]&amp;data[3]&amp;data[4]&amp;data[5]&amp;data[6]" newline="True"/>
+                    <output expression="&quot;terdapat perbedaan pada data sebelum dikirim dan sesudah dikirim menyebabkan data ini error dalam hamming code&quot;" newline="True"/>
                     <if expression="p1 != p12">
                         <then>
-                            <output expression="&quot;terdapat perbedaan pada data sebelum dikirim dan sesudah dikirim pada paritas 1&quot;" newline="True"/>
                             <output expression="&quot;pada P1 pengiriman = &quot; &amp;p1" newline="True"/>
                             <output expression="&quot;pada P1 diterima = &quot; &amp;p12" newline="True"/>
-                        </then>
-                        <else>
                             <if expression="p2 != P22">
                                 <then>
-                                    <output expression="&quot;terdapat perbedaan pada data sebelum dikirim dan sesudah dikirim pada paritas 2&quot;" newline="True"/>
                                     <output expression="&quot;pada P2 pengiriman = &quot; &amp;p2" newline="True"/>
                                     <output expression="&quot;pada P2 diterima = &quot; &amp;p22" newline="True"/>
                                     <output expression="&quot;karena terdapat pada P2 berarti letak kesalahan berada pada 2 pangkat 2 = 4. data bit ke 4&quot;" newline="True"/>
+                                    <if expression="p3 != p32">
+                                        <then>
+                                            <output expression="&quot;pada P4 pengiriman = &quot; &amp;p3" newline="True"/>
+                                            <output expression="&quot;pada P4 diterima = &quot; &amp;p32" newline="True"/>
+                                            <output expression="&quot;dengan rumus dari pelahan indek P didapat perbedaan pada P1,P2 dan P4 = 1+2+4 = 7&quot;" newline="True"/>
+                                            <output expression="&quot;error data pada indek 7&quot;" newline="True"/>
+                                        </then>
+                                        <else/>
+                                    </if>
                                 </then>
                                 <else>
                                     <if expression="p3 != p32">
@@ -316,6 +322,36 @@
                                             <output expression="&quot;terdapat perbedaan pada data sebelum dikirim dan sesudah dikirim pada paritas 4&quot;" newline="True"/>
                                             <output expression="&quot;pada P4 pengiriman = &quot; &amp;p3" newline="True"/>
                                             <output expression="&quot;pada P4 diterima = &quot; &amp;p32" newline="True"/>
+                                            <output expression="&quot;dengan rumus dari pelahan indek P didapat perbedaan pada P1 dan P4 = 1+4 = 5&quot;" newline="True"/>
+                                            <output expression="&quot;error data pada indek 5&quot;" newline="True"/>
+                                        </then>
+                                        <else/>
+                                    </if>
+                                </else>
+                            </if>
+                        </then>
+                        <else>
+                            <if expression="p2 != P22">
+                                <then>
+                                    <output expression="&quot;pada P2 pengiriman = &quot; &amp;p2" newline="True"/>
+                                    <output expression="&quot;pada P2 diterima = &quot; &amp;p22" newline="True"/>
+                                    <if expression="p3 != p32">
+                                        <then>
+                                            <output expression="&quot;pada P4 pengiriman = &quot; &amp;p3" newline="True"/>
+                                            <output expression="&quot;pada P4 diterima = &quot; &amp;p32" newline="True"/>
+                                            <output expression="&quot;dengan rumus dari pelahan indek P didapat perbedaan pada P2 dan P4 = 2 + 4 = 6&quot;" newline="True"/>
+                                            <output expression="&quot;error data pada indek 6&quot;" newline="True"/>
+                                        </then>
+                                        <else/>
+                                    </if>
+                                </then>
+                                <else>
+                                    <if expression="p3 != p32">
+                                        <then>
+                                            <output expression="&quot;pada P4 pengiriman = &quot; &amp;p3" newline="True"/>
+                                            <output expression="&quot;pada P4 diterima = &quot; &amp;p32" newline="True"/>
+                                            <output expression="&quot;dengan rumus dari pelahan indek P didapat perbedaan pada P4 = 4&quot;" newline="True"/>
+                                            <output expression="&quot;error data pada indek 4&quot;" newline="True"/>
                                         </then>
                                         <else/>
                                     </if>
