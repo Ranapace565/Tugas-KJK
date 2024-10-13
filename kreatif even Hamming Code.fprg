@@ -1,0 +1,331 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="user"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-10-14 03:28:13 AM"/>
+        <attribute name="created" value="dXNlcjtMQVBUT1AtNjVITzNRNDY7MjAyNC0xMC0xNDsxMjo1OToxNyBBTTsyNzIw"/>
+        <attribute name="edited" value="dXNlcjtMQVBUT1AtNjVITzNRNDY7MjAyNC0xMC0xNDswMzoyODoxMyBBTTsxOzI4MjA="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="data" type="Integer" array="True" size="7"/>
+            <declare name="meter1, meter2, meter3" type="Integer" array="True" size="4"/>
+            <declare name="indek, loop, null, par, p1, p2, p3, h, ran" type="Integer" array="False" size=""/>
+            <assign variable="null" expression="99"/>
+            <output expression="&quot;karena bit data hanya 4 maka paritas yang dibutuhkan adalah 3&quot;" newline="True"/>
+            <output expression="&quot;dengan rumus 4 bit = 2 pangkat 2 ; 2 + 1 = 3; jadi total bit yang akan dikirim adalah 7 bit data&quot;" newline="True"/>
+            <assign variable="data[0]" expression="null"/>
+            <assign variable="data[1]" expression="null"/>
+            <output expression="&quot;masukan bit 1&quot;" newline="True"/>
+            <input variable="data[2]"/>
+            <assign variable="data[3]" expression="null"/>
+            <output expression="&quot;masukan bit 2&quot;" newline="True"/>
+            <input variable="data[4]"/>
+            <output expression="&quot;masukan bit 3&quot;" newline="True"/>
+            <input variable="data[5]"/>
+            <output expression="&quot;masukan bit 4&quot;" newline="True"/>
+            <input variable="data[6]"/>
+            <output expression="&quot;data didapat = &quot;&amp;data[2]&amp;data[4]&amp;data[5]&amp;data[6]" newline="True"/>
+            <output expression="&quot;konversi 7 bit = null null &quot;&amp;data[2]&amp;&quot; null &quot;&amp;data[4]&amp;&quot; &quot;&amp;data[5]&amp;&quot; &quot;&amp;data[6]" newline="True"/>
+            <output expression="&quot;hitung pariti&quot;" newline="True"/>
+            <assign variable="indek" expression="0"/>
+            <assign variable="loop" expression="0"/>
+            <output expression="&quot;P1 = &quot;" newline="False"/>
+            <assign variable="par" expression="0"/>
+            <assign variable="indek" expression="0"/>
+            <do expression="loop &lt;= 6">
+                <if expression="data[loop] == null">
+                    <then/>
+                    <else>
+                        <if expression="data[loop]==1">
+                            <then>
+                                <assign variable="meter1[par]" expression="1"/>
+                                <assign variable="indek" expression="indek + 1"/>
+                            </then>
+                            <else>
+                                <assign variable="meter1[par]" expression="0"/>
+                            </else>
+                        </if>
+                        <output expression="meter1[par]" newline="False"/>
+                        <assign variable="par" expression="par + 1"/>
+                    </else>
+                </if>
+                <assign variable="loop" expression="loop+2"/>
+            </do>
+            <output expression="&quot; = &quot;" newline="False"/>
+            <if expression="indek % 2 == 0">
+                <then>
+                    <assign variable="p1" expression="0"/>
+                </then>
+                <else>
+                    <assign variable="p1" expression="1"/>
+                </else>
+            </if>
+            <output expression="p1" newline="True"/>
+            <assign variable="loop" expression="1"/>
+            <assign variable="par" expression="0"/>
+            <output expression="&quot;P2 = &quot;" newline="False"/>
+            <assign variable="h" expression="0"/>
+            <do expression="loop &lt;= 6">
+                <assign variable="indek" expression="1"/>
+                <while expression="indek &lt;= 4">
+                    <if expression="indek &lt;= 2">
+                        <then>
+                            <if expression="data[loop] == null">
+                                <then/>
+                                <else>
+                                    <if expression="data[loop]==1">
+                                        <then>
+                                            <assign variable="meter2[par]" expression="1"/>
+                                            <assign variable="h" expression="h+1"/>
+                                        </then>
+                                        <else>
+                                            <assign variable="meter2[par]" expression="0"/>
+                                        </else>
+                                    </if>
+                                    <output expression="meter2[par]" newline="False"/>
+                                    <assign variable="par" expression="par + 1"/>
+                                </else>
+                            </if>
+                            <assign variable="loop" expression="loop+1"/>
+                        </then>
+                        <else/>
+                    </if>
+                    <assign variable="indek" expression="indek + 1"/>
+                </while>
+            </do>
+            <output expression="&quot; = &quot;" newline="False"/>
+            <if expression="h % 2 == 0">
+                <then>
+                    <assign variable="p2" expression="0"/>
+                </then>
+                <else>
+                    <assign variable="p2" expression="1"/>
+                </else>
+            </if>
+            <output expression="p2" newline="True"/>
+            <assign variable="loop" expression="3"/>
+            <assign variable="par" expression="0"/>
+            <output expression="&quot;P4 = &quot;" newline="False"/>
+            <assign variable="h" expression="0"/>
+            <do expression="loop &lt;= 6">
+                <assign variable="indek" expression="1"/>
+                <while expression="indek &lt;= 8">
+                    <if expression="indek &lt;= 4">
+                        <then>
+                            <if expression="data[loop] == null">
+                                <then/>
+                                <else>
+                                    <if expression="data[loop]==1">
+                                        <then>
+                                            <assign variable="meter3[par]" expression="1"/>
+                                            <assign variable="h" expression="h+1"/>
+                                        </then>
+                                        <else>
+                                            <assign variable="meter3[par]" expression="0"/>
+                                        </else>
+                                    </if>
+                                    <output expression="meter3[par]" newline="False"/>
+                                    <assign variable="par" expression="par + 1"/>
+                                </else>
+                            </if>
+                            <assign variable="loop" expression="loop+1"/>
+                        </then>
+                        <else/>
+                    </if>
+                    <assign variable="indek" expression="indek + 1"/>
+                </while>
+            </do>
+            <output expression="&quot; = &quot;" newline="False"/>
+            <if expression="h % 2 == 0">
+                <then>
+                    <assign variable="p3" expression="0"/>
+                </then>
+                <else>
+                    <assign variable="p3" expression="1"/>
+                </else>
+            </if>
+            <output expression="p3" newline="True"/>
+            <assign variable="data[0]" expression="p1"/>
+            <assign variable="data[1]" expression="p2"/>
+            <assign variable="data[3]" expression="p3"/>
+            <output expression="&quot;data lengkap menjadi 7 bit = &quot; &amp;data[0]&amp;data[1]&amp;data[2]&amp;data[3]&amp;data[4]&amp;data[5]&amp;data[6]" newline="True"/>
+            <output expression="&quot;data dikirim&quot;" newline="True"/>
+            <output expression="&quot;kirim data error ? (1 = ya / 0 = tidak0)&quot;" newline="True"/>
+            <input variable="indek"/>
+            <if expression="indek == 1">
+                <then>
+                    <declare name="p12, p22, p32" type="Integer" array="False" size=""/>
+                    <assign variable="data[0]" expression="null"/>
+                    <assign variable="data[1]" expression="null"/>
+                    <assign variable="data[3]" expression="null"/>
+                    <do expression="ran &lt; 4">
+                        <assign variable="ran" expression="random(6)"/>
+                    </do>
+                    <if expression="data[ran] == 1">
+                        <then>
+                            <assign variable="data[ran]" expression="0"/>
+                        </then>
+                        <else>
+                            <assign variable="data[ran]" expression="1"/>
+                        </else>
+                    </if>
+                    <output expression="&quot;hitung pariti&quot;" newline="True"/>
+                    <assign variable="indek" expression="0"/>
+                    <assign variable="loop" expression="0"/>
+                    <output expression="&quot;P1 = &quot;" newline="False"/>
+                    <assign variable="par" expression="0"/>
+                    <assign variable="indek" expression="0"/>
+                    <do expression="loop &lt;= 6">
+                        <if expression="data[loop] == null">
+                            <then/>
+                            <else>
+                                <if expression="data[loop]==1">
+                                    <then>
+                                        <assign variable="meter1[par]" expression="1"/>
+                                        <assign variable="indek" expression="indek + 1"/>
+                                    </then>
+                                    <else>
+                                        <assign variable="meter1[par]" expression="0"/>
+                                    </else>
+                                </if>
+                                <output expression="meter1[par]" newline="False"/>
+                                <assign variable="par" expression="par + 1"/>
+                            </else>
+                        </if>
+                        <assign variable="loop" expression="loop+2"/>
+                    </do>
+                    <output expression="&quot; = &quot;" newline="False"/>
+                    <if expression="indek % 2 == 0">
+                        <then>
+                            <assign variable="p12" expression="0"/>
+                        </then>
+                        <else>
+                            <assign variable="p12" expression="1"/>
+                        </else>
+                    </if>
+                    <output expression="p1" newline="True"/>
+                    <assign variable="loop" expression="1"/>
+                    <assign variable="par" expression="0"/>
+                    <output expression="&quot;P2 = &quot;" newline="False"/>
+                    <assign variable="h" expression="0"/>
+                    <do expression="loop &lt;= 6">
+                        <assign variable="indek" expression="1"/>
+                        <while expression="indek &lt;= 4">
+                            <if expression="indek &lt;= 2">
+                                <then>
+                                    <if expression="data[loop] == null">
+                                        <then/>
+                                        <else>
+                                            <if expression="data[loop]==1">
+                                                <then>
+                                                    <assign variable="meter2[par]" expression="1"/>
+                                                    <assign variable="h" expression="h+1"/>
+                                                </then>
+                                                <else>
+                                                    <assign variable="meter2[par]" expression="0"/>
+                                                </else>
+                                            </if>
+                                            <output expression="meter2[par]" newline="False"/>
+                                            <assign variable="par" expression="par + 1"/>
+                                        </else>
+                                    </if>
+                                    <assign variable="loop" expression="loop+1"/>
+                                </then>
+                                <else/>
+                            </if>
+                            <assign variable="indek" expression="indek + 1"/>
+                        </while>
+                    </do>
+                    <output expression="&quot; = &quot;" newline="False"/>
+                    <if expression="h % 2 == 0">
+                        <then>
+                            <assign variable="p22" expression="0"/>
+                        </then>
+                        <else>
+                            <assign variable="p22" expression="1"/>
+                        </else>
+                    </if>
+                    <output expression="p2" newline="True"/>
+                    <assign variable="loop" expression="3"/>
+                    <assign variable="par" expression="0"/>
+                    <output expression="&quot;P4 = &quot;" newline="False"/>
+                    <assign variable="h" expression="0"/>
+                    <do expression="loop &lt;= 6">
+                        <assign variable="indek" expression="1"/>
+                        <while expression="indek &lt;= 8">
+                            <if expression="indek &lt;= 4">
+                                <then>
+                                    <if expression="data[loop] == null">
+                                        <then/>
+                                        <else>
+                                            <if expression="data[loop]==1">
+                                                <then>
+                                                    <assign variable="meter3[par]" expression="1"/>
+                                                    <assign variable="h" expression="h+1"/>
+                                                </then>
+                                                <else>
+                                                    <assign variable="meter3[par]" expression="0"/>
+                                                </else>
+                                            </if>
+                                            <output expression="meter3[par]" newline="False"/>
+                                            <assign variable="par" expression="par + 1"/>
+                                        </else>
+                                    </if>
+                                    <assign variable="loop" expression="loop+1"/>
+                                </then>
+                                <else/>
+                            </if>
+                            <assign variable="indek" expression="indek + 1"/>
+                        </while>
+                    </do>
+                    <output expression="&quot; = &quot;" newline="False"/>
+                    <if expression="h % 2 == 0">
+                        <then>
+                            <assign variable="p32" expression="0"/>
+                        </then>
+                        <else>
+                            <assign variable="p32" expression="1"/>
+                        </else>
+                    </if>
+                    <output expression="p32" newline="True"/>
+                    <assign variable="data[0]" expression="p12"/>
+                    <assign variable="data[1]" expression="p22"/>
+                    <assign variable="data[3]" expression="p32"/>
+                    <output expression="&quot;data lengkap menjadi 7 bit = &quot; &amp;data[0]&amp;data[1]&amp;data[2]&amp;data[3]&amp;data[4]&amp;data[5]&amp;data[6]" newline="True"/>
+                    <if expression="p1 != p12">
+                        <then>
+                            <output expression="&quot;terdapat perbedaan pada data sebelum dikirim dan sesudah dikirim pada paritas 1&quot;" newline="True"/>
+                            <output expression="&quot;pada P1 pengiriman = &quot; &amp;p1" newline="True"/>
+                            <output expression="&quot;pada P1 diterima = &quot; &amp;p12" newline="True"/>
+                        </then>
+                        <else>
+                            <if expression="p2 != P22">
+                                <then>
+                                    <output expression="&quot;terdapat perbedaan pada data sebelum dikirim dan sesudah dikirim pada paritas 2&quot;" newline="True"/>
+                                    <output expression="&quot;pada P2 pengiriman = &quot; &amp;p2" newline="True"/>
+                                    <output expression="&quot;pada P2 diterima = &quot; &amp;p22" newline="True"/>
+                                    <output expression="&quot;karena terdapat pada P2 berarti letak kesalahan berada pada 2 pangkat 2 = 4. data bit ke 4&quot;" newline="True"/>
+                                </then>
+                                <else>
+                                    <if expression="p3 != p32">
+                                        <then>
+                                            <output expression="&quot;terdapat perbedaan pada data sebelum dikirim dan sesudah dikirim pada paritas 4&quot;" newline="True"/>
+                                            <output expression="&quot;pada P4 pengiriman = &quot; &amp;p3" newline="True"/>
+                                            <output expression="&quot;pada P4 diterima = &quot; &amp;p32" newline="True"/>
+                                        </then>
+                                        <else/>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </then>
+                <else/>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
